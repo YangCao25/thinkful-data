@@ -1,0 +1,19 @@
+-- 1.	The most expensive listing, what other information relates with this list
+SELECT 	* FROM sfo_listings
+ORDER BY price DESC LIMIT 5
+
+
+-- 2.	The most popular neighborhood
+SELECT neighbourhood,COUNT(*) AS "num_of)list" 
+FROM  sfo_listings 
+GROUP BY neighbourhood
+ORDER BY 2 DESC LIMIT 5
+
+-- o	What time of year is the cheapest time to go to San Francisco? What about the busiest?
+SELECT 
+	TO_CHAR(calender_date,'YY-Mon') AS year_month,
+	COUNT(*)
+FROM
+	sfo_calendar
+GROUP BY 1
+ORDER BY count ASC
